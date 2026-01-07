@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="es" class="h-full">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TL8XBZ27');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
+    <!-- VERIFICACIÓN DE PROPIEDAD (Search Console) -->
+    <meta name="google-site-verification" content="PEGA_AQUI_TU_CODIGO_DE_GOOGLE" />
+
     <!-- SEO ESTRATÉGICO -->
     <title>VESTIGIO | Informática Forense Apple Silicon & Alta Complejidad Chile</title>
     <meta name="description" content="Laboratorio forense digital de élite en Chile. Especialistas en Apple Silicon (M1/M2/M3), recuperación de evidencia digital y peritajes judiciales complejos.">
@@ -58,14 +69,17 @@
     </style>
 </head>
 <body class="bg-slate-950">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL8XBZ27"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div id="root"></div>
 
     <script type="text/babel">
         // LOGO VECTORIAL INTEGRADO (SVG)
-        // Diseñado para no depender de archivos externos
         const VestigioLogo = ({ className = "" }) => (
             <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-                {/* Escudo Exterior */}
                 <path 
                     d="M100 20L40 45V95C40 135 65 165 100 180C135 165 160 135 160 95V45L100 20Z" 
                     stroke="currentColor" 
@@ -73,11 +87,9 @@
                     strokeLinecap="round" 
                     strokeLinejoin="round"
                 />
-                {/* Detalles Internos (Huella/Circuitos) */}
                 <path d="M75 75C85 65 115 65 125 75" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.8" />
                 <path d="M70 100C80 85 120 85 130 100" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.6" />
                 <path d="M82 125C92 115 108 115 118 125" stroke="currentColor" strokeWidth="3" strokeLinecap="round" opacity="0.4" />
-                {/* Núcleo Activo */}
                 <circle cx="100" cy="100" r="6" fill="currentColor" className="animate-pulse" />
             </svg>
         );
@@ -91,7 +103,6 @@
         const App = () => {
             const [dots, setDots] = React.useState('');
 
-            // Animación de puntos de carga
             React.useEffect(() => {
                 const interval = setInterval(() => {
                     setDots(prev => prev.length >= 3 ? '' : prev + '.');
@@ -102,22 +113,17 @@
             return (
                 <div className="h-full w-full bg-slate-950 text-slate-200 font-sans flex flex-col items-center justify-center relative overflow-hidden px-6">
                     
-                    {/* CAPA DE FONDO */}
                     <div className="absolute inset-0 z-0">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#1e293b_0%,_#020617_100%)] opacity-40"></div>
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent animate-scan"></div>
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent animate-scan"></div>
                     </div>
 
                     <main className="relative z-10 text-center max-w-4xl animate-fade-in w-full">
                         
-                        {/* SECCIÓN LOGO */}
                         <div className="flex flex-col items-center mb-8 md:mb-10">
                             <div className="relative group">
-                                {/* Glow de seguridad */}
                                 <div className="absolute inset-0 bg-cyan-500 blur-3xl opacity-10 rounded-full glow-effect"></div>
-                                
                                 <VestigioLogo className="w-24 h-24 md:w-44 md:h-44 text-cyan-400 relative z-10 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]" />
-
                                 <div className="absolute -top-1 -right-1 z-20">
                                     <span className="flex h-3 w-3">
                                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
@@ -136,7 +142,6 @@
                             </div>
                         </div>
 
-                        {/* MENSAJE CENTRAL */}
                         <div className="space-y-6 md:space-y-8 mt-10 md:mt-16">
                             <h2 className="text-2xl md:text-5xl font-black text-white leading-tight">
                                 Mientras otros buscan pistas, <br/>
@@ -153,7 +158,6 @@
                             </p>
                         </div>
 
-                        {/* STATUS BAR */}
                         <div className="mt-14 md:mt-24 max-w-[280px] md:max-w-xs mx-auto">
                             <div className="flex justify-between items-end mb-3 font-mono text-[8px] md:text-[9px] tracking-[0.1em] md:tracking-[0.2em] text-cyan-500/60 uppercase">
                                 <div className="flex items-center gap-2">
@@ -167,7 +171,6 @@
                         </div>
                     </main>
 
-                    {/* FOOTER */}
                     <footer className="absolute bottom-8 md:bottom-12 left-0 w-full text-center z-10 px-4">
                         <p className="text-[8px] md:text-[10px] font-mono text-slate-700 uppercase tracking-[0.3em] md:tracking-[0.5em] font-bold">
                             © 2026 VESTIGIO FORENSICS | SANTIAGO, CHILE

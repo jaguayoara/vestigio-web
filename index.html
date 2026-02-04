@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth h-full">
+<html lang="es" class="scroll-smooth">
 <head>
     <!-- Google Analytics & GTM (Preservados) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-14Z5FWRZVN"></script>
@@ -28,50 +28,58 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;900&display=swap');
         
-        body { 
+        html, body { 
             font-family: 'Space Grotesk', sans-serif; 
             background-color: #020617; 
             margin: 0;
-            -webkit-font-smoothing: antialiased;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+            min-height: 100vh;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
         }
-        .animate-float { animation: float 5s ease-in-out infinite; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
 
         .glass {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .hero-gradient {
-            background: radial-gradient(circle at center, rgba(34, 211, 238, 0.08) 0%, rgba(2, 6, 23, 1) 80%);
+            background: radial-gradient(circle at center, rgba(34, 211, 238, 0.1) 0%, rgba(2, 6, 23, 1) 70%);
         }
 
-        /* Ajuste para evitar cortes de texto en títulos grandes */
+        /* Ajuste crítico para títulos gigantes */
         .title-display {
-            line-height: 0.9;
+            line-height: 0.85;
             padding: 0.1em 0;
         }
     </style>
 </head>
-<body class="text-slate-200 overflow-x-hidden selection:bg-cyan-500">
+<body class="text-slate-200 selection:bg-cyan-500 selection:text-slate-900">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TL8XBZ27"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div id="root"></div>
 
     <script type="text/babel">
-        // LOGO ORION MEJORADO (SVG Fiel al archivo orion logo.jpg)
-        const OrionLogo = ({ className = "", size = 120 }) => (
+        // LOGO ORION MEJORADO (SVG Fiel al diseño original)
+        const OrionLogo = ({ className = "", size = 180 }) => (
             <svg width={size} height={size} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
                 {/* Pin de localización oscuro */}
-                <path d="M100 180C100 180 165 110 165 75C165 39.1015 135.899 10 100 10C64.1015 10 35 39.1015 35 75C35 110 100 180 100 180Z" fill="#020617" stroke="#1e293b" strokeWidth="1"/>
+                <path d="M100 180C100 180 165 110 165 75C165 39.1015 135.899 10 100 10C64.1015 10 35 39.1015 35 75C35 110 100 180 100 180Z" fill="#020617" stroke="#1e293b" strokeWidth="2"/>
                 
                 {/* Constelación de Orión */}
-                <g stroke="#ffffff" strokeWidth="1" opacity="0.6">
+                <g stroke="#ffffff" strokeWidth="1.5" opacity="0.8">
                     <line x1="100" y1="40" x2="85" y2="65" />
                     <line x1="100" y1="40" x2="115" y2="65" />
                     <line x1="85" y1="65" x2="92" y2="95" />
@@ -82,19 +90,19 @@
                     <line x1="108" y1="95" x2="120" y2="135" />
                 </g>
 
-                {/* Estrellas */}
-                <circle cx="100" cy="40" r="3" fill="#22D3EE" /> {/* Cabeza */}
-                <circle cx="85" cy="65" r="4" fill="#22D3EE" />  {/* Hombro */}
-                <circle cx="115" cy="65" r="4" fill="#22D3EE" /> {/* Hombro */}
-                <circle cx="92" cy="95" r="3" fill="#22D3EE" />  {/* Cinturón */}
-                <circle cx="100" cy="95" r="3" fill="#22D3EE" /> {/* Cinturón */}
-                <circle cx="108" cy="95" r="3" fill="#22D3EE" /> {/* Cinturón */}
-                <circle cx="80" cy="135" r="4" fill="#22D3EE" /> {/* Pie */}
-                <circle cx="120" cy="135" r="4" fill="#22D3EE" /> {/* Pie */}
+                {/* Estrellas Principales */}
+                <circle cx="100" cy="40" r="3.5" fill="#22D3EE" className="animate-pulse" /> 
+                <circle cx="85" cy="65" r="4.5" fill="#22D3EE" />  
+                <circle cx="115" cy="65" r="4.5" fill="#22D3EE" /> 
+                <circle cx="92" cy="95" r="3.5" fill="#22D3EE" />  
+                <circle cx="100" cy="95" r="3.5" fill="#22D3EE" /> 
+                <circle cx="108" cy="95" r="3.5" fill="#22D3EE" /> 
+                <circle cx="80" cy="135" r="4.5" fill="#22D3EE" /> 
+                <circle cx="120" cy="135" r="4.5" fill="#22D3EE" /> 
 
-                {/* Estrella principal (derecha) */}
-                <path d="M140 55L155 40L170 55L155 70L140 55Z" fill="#22D3EE" className="animate-pulse" />
-                <path d="M100 135L110 125L120 135L110 145L100 135Z" fill="#22D3EE" opacity="0.5" />
+                {/* Estrella Fugaz (Identidad Visual) */}
+                <path d="M140 55L155 40L170 55L155 70L140 55Z" fill="#22D3EE" className="animate-pulse" style={{animationDuration: '3s'}} />
+                <path d="M100 135L110 125L120 135L110 145L100 135Z" fill="#22D3EE" opacity="0.6" />
             </svg>
         );
 
@@ -118,25 +126,53 @@
                 <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
                     <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/>
                 </svg>
+            ),
+            Globe: ({ size = 24, className = "" }) => (
+                <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                    <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+            ),
+            Cpu: ({ size = 24, className = "" }) => (
+                <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
+                    <rect x="9" y="9" width="6" height="6" />
+                    <line x1="9" y1="1" x2="9" y2="4" /><line x1="15" y1="1" x2="15" y2="4" />
+                    <line x1="9" y1="20" x2="9" y2="23" /><line x1="15" y1="20" x2="15" y2="23" />
+                    <line x1="20" y1="9" x2="23" y2="9" /><line x1="20" y1="15" x2="23" y2="15" />
+                    <line x1="1" y1="9" x2="4" y2="9" /><line x1="1" y1="15" x2="4" y2="15" />
+                </svg>
+            ),
+            Target: ({ size = 24, className = "" }) => (
+                <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+                    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+                </svg>
             )
         };
 
         const App = () => {
+            const [scrolled, setScrolled] = React.useState(false);
+
+            React.useEffect(() => {
+                const handleScroll = () => setScrolled(window.scrollY > 50);
+                window.addEventListener('scroll', handleScroll);
+                return () => window.removeEventListener('scroll', handleScroll);
+            }, []);
+
             return (
-                <div className="min-h-screen flex flex-col">
-                    {/* --- NAVBAR OPTIMIZADA --- */}
-                    <nav className="fixed w-full z-50 glass py-3">
-                        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-                            <div className="flex items-center gap-2">
+                <div className="flex flex-col w-full overflow-hidden">
+                    {/* --- NAVBAR --- */}
+                    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'glass py-3 border-b border-white/5' : 'bg-transparent py-6'}`}>
+                        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+                            <div className="flex items-center gap-3">
                                 <div className="text-cyan-400">
-                                    <Icons.Shield size={24} />
+                                    <Icons.Shield size={28} />
                                 </div>
                                 <div className="flex flex-col text-left">
-                                    <span className="text-lg md:text-xl font-black text-white tracking-widest leading-none uppercase">VESTIGIO</span>
-                                    <span className="text-[7px] md:text-[8px] text-cyan-500 font-bold tracking-[0.3em] uppercase">Intelligence Division</span>
+                                    <span className="text-xl font-black text-white tracking-widest leading-none uppercase">VESTIGIO</span>
+                                    <span className="text-[7px] text-cyan-500 font-bold tracking-[0.3em] uppercase mt-1">Intelligence</span>
                                 </div>
                             </div>
-                            <div className="flex items-center gap-4 md:gap-8 text-[9px] md:text-[10px] font-bold tracking-[0.1em] uppercase text-slate-400">
+                            <div className="hidden md:flex items-center gap-8 text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400">
                                 <a href="#tecnologia" className="hover:text-cyan-400 transition-colors">Tecnología</a>
                                 <a href="#solucion" className="hover:text-cyan-400 transition-colors">Solución</a>
                                 <a href="#estandares" className="hover:text-cyan-400 transition-colors">Normas</a>
@@ -145,10 +181,10 @@
                     </nav>
 
                     {/* --- HERO --- */}
-                    <header className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 px-6 hero-gradient">
+                    <header className="relative min-h-screen flex items-center justify-center pt-24 px-6 hero-gradient">
                         <div className="max-w-7xl mx-auto text-center z-10 flex flex-col items-center w-full">
-                            <div className="mb-6 md:mb-10 animate-float">
-                                <OrionLogo size={110} />
+                            <div className="mb-8 md:mb-12 animate-float">
+                                <OrionLogo size={180} />
                             </div>
                             
                             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-cyan-400 text-[9px] font-black tracking-[0.2em] uppercase mb-8 shadow-2xl">
@@ -156,11 +192,11 @@
         						Ingeniería de Precisión • Chile
                             </div>
                             
-                            <h1 className="text-7xl md:text-[11rem] font-black text-white leading-none tracking-tighter mb-8 drop-shadow-2xl uppercase title-display">
+                            <h1 className="text-6xl md:text-[10rem] font-black text-white leading-none tracking-tighter mb-8 drop-shadow-2xl uppercase title-display">
                                 ORION
                             </h1>
                             
-                            <p className="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10 font-light italic px-4">
+                            <p className="text-lg md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-10 font-light italic px-2">
                                 La evolución de la <span className="text-white font-bold not-italic">inteligencia táctica</span> y el rastreo forense. <br className="hidden md:block"/>
                                 <span className="text-cyan-400 font-medium not-italic">Solución llave en mano diseñada para operaciones de alta complejidad.</span>
                             </p>
@@ -170,11 +206,11 @@
                             </div>
                         </div>
 
-                        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-950 to-transparent"></div>
+                        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none"></div>
                     </header>
 
                     {/* --- SECCIÓN SOLUCIÓN INTEGRAL --- */}
-                    <section id="solucion" className="py-24 bg-slate-950 border-y border-white/5">
+                    <section id="solucion" className="py-24 bg-slate-950 border-y border-white/5 relative z-10">
                         <div className="max-w-7xl mx-auto px-6">
                             <div className="text-center mb-16">
                                 <h2 className="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">Continuidad Operativa Garantizada</h2>
@@ -209,22 +245,137 @@
                         </div>
                     </section>
 
-                    {/* --- FOOTER --- */}
-                    <footer className="py-16 bg-slate-950 border-t border-white/5 px-6">
-                        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-                            <div className="text-center md:text-left space-y-3">
-                                <div className="flex items-center justify-center md:justify-start gap-2">
-                                    <Icons.Shield className="text-slate-600" size={24} />
-                                    <span className="text-lg font-black text-slate-600 tracking-widest uppercase">VESTIGIO</span>
+                    {/* --- VALORES GLOBALES --- */}
+                    <section className="py-24 bg-slate-950 relative border-b border-white/5">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="grid md:grid-cols-3 gap-12 text-left">
+                                <div className="space-y-4">
+                                    <div className="text-cyan-400"><Icons.Cpu size={40} /></div>
+                                    <h3 className="text-xl font-black text-white uppercase tracking-tighter">Arquitectura de Alto Nivel</h3>
+                                    <p className="text-slate-500 text-sm leading-relaxed">
+                                        Ecosistema de inteligencia de datos con redundancia crítica. Orion optimiza el rastreo y análisis táctico con algoritmos de próxima generación.
+                                    </p>
                                 </div>
-                                <p className="text-slate-700 text-[9px] font-bold uppercase tracking-[0.2em] max-w-xs mx-auto md:mx-0">
-                                    Ingeniería Táctica y Ecosistemas Forenses. <br/>
+                                <div className="space-y-4">
+                                    <div className="text-cyan-400"><Icons.Target size={40} /></div>
+                                    <h3 className="text-xl font-black text-white uppercase tracking-tighter">Precisión Operativa</h3>
+                                    <p className="text-slate-500 text-sm leading-relaxed">
+                                        Diseñado para misiones donde el margen de error es inexistente. Localización, telemetría y diagnóstico en tiempo real bajo condiciones extremas.
+                                    </p>
+                                </div>
+                                <div className="space-y-4">
+                                    <div className="text-cyan-400"><Icons.Globe size={40} /></div>
+                                    <h3 className="text-xl font-black text-white uppercase tracking-tighter">Estándares Internacionales</h3>
+                                    <p className="text-slate-500 text-sm leading-relaxed">
+                                        Cada desarrollo de Vestigio cumple con los protocolos de integridad de evidencia ISO y NIST, asegurando interoperabilidad global.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* --- SECTION TECNICA --- */}
+                    <section id="tecnologia" className="py-32 bg-slate-900 overflow-hidden relative">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="flex flex-col lg:flex-row gap-20 items-center">
+                                <div className="lg:w-1/2 space-y-8 text-left">
+                                    <div className="inline-block px-3 py-1 bg-cyan-950/40 text-cyan-400 text-[10px] font-black tracking-widest uppercase border border-cyan-800">
+                                        Inteligencia y Seguimiento
+                                    </div>
+                                    <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase leading-[0.9]">
+                                        Ingeniería <br/>
+                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Hecha en Chile.</span>
+                                    </h2>
+                                    <p className="text-slate-400 text-lg leading-relaxed font-light">
+                                        Desarrollamos soluciones integrales que consolidan hardware de vanguardia con un núcleo de software propio, eliminando la dependencia de proveedores extranjeros.
+                                    </p>
+                                    <div className="space-y-6 pt-4">
+                                        <div className="flex items-center gap-4 text-white font-bold">
+                                            <div className="w-8 h-[2px] bg-cyan-500"></div>
+                                            Plataforma Unificada de Inteligencia Geográfica
+                                        </div>
+                                        <div className="flex items-center gap-4 text-white font-bold">
+                                            <div className="w-8 h-[2px] bg-cyan-500"></div>
+                                            Trazabilidad Operativa e Integridad Forense
+                                        </div>
+                                        <div className="flex items-center gap-4 text-white font-bold">
+                                            <div className="w-8 h-[2px] bg-cyan-500"></div>
+                                            Soberanía Tecnológica de Exportación
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="lg:w-1/2 relative">
+                                    <div className="aspect-square glass rounded-3xl p-10 flex flex-col justify-between border-white/10 relative overflow-hidden">
+                                        <div className="font-mono text-[10px] text-cyan-500/80 space-y-3 uppercase tracking-widest text-left">
+                                            <p className="text-white font-black border-b border-white/10 pb-2">VESTIGIO : ORION KERNEL 2026</p>
+                                            <p className="flex justify-between"><span>MOD:</span> <span>TACTICAL_GEO_V4</span></p>
+                                            <p className="flex justify-between"><span>ENCRYPT:</span> <span>AES-256 BITLOCKED</span></p>
+                                            <p className="flex justify-between"><span>REGION:</span> <span>LATAM_SOUTH</span></p>
+                                            <div className="pt-4 opacity-40">
+                                                <p>> Inicializando protocolos de seguridad...</p>
+                                                <p>> Verificando integridad de nodos...</p>
+                                                <p>> Sincronizando satélites de posición...</p>
+                                            </div>
+                                        </div>
+                                        <div className="pt-10">
+                                            <div className="flex justify-between items-end mb-2 text-[8px] font-bold text-slate-500 tracking-[0.3em] uppercase">
+                                                <span>Fase Final de Implementación</span>
+                                                <span>98%</span>
+                                            </div>
+                                            <div className="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+                                                <div className="h-full bg-cyan-500 w-[98%] shadow-[0_0_15px_#22d3ee] animate-pulse"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* --- ESTANDARES / NORMATIVAS --- */}
+                    <section id="estandares" className="py-32 bg-slate-950 border-t border-white/5">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="text-center max-w-3xl mx-auto mb-20">
+                                <h2 className="text-3xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight">Ecosistema Normativo</h2>
+                                <p className="text-slate-400 font-light text-lg">
+                                    Sistemas diseñados bajo protocolos de validez legal y técnica absoluta.
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-4 gap-4">
+                                {[
+                                    { code: "ISO/IEC 27037", title: "Preservación Digital", desc: "Protocolo para la identificación y custodia de evidencia electrónica." },
+                                    { code: "ISO/IEC 27042", title: "Análisis Forense", desc: "Lineamientos para el análisis y la interpretación de datos digitales." },
+                                    { code: "NIST SP 800-86", title: "Integración Judicial", desc: "Estándar para integrar la informática forense en procesos legales." },
+                                    { code: "LEY 21.459", title: "Cumplimiento Local", desc: "Alineamiento total con la legislación chilena de delitos informáticos." }
+                                ].map((s, i) => (
+                                    <div key={i} className="glass p-8 border-white/5 hover:border-cyan-500/30 transition-all text-left">
+                                        <div className="text-cyan-400 font-black text-lg mb-4">{s.code}</div>
+                                        <h4 className="text-white font-bold text-sm mb-2 uppercase">{s.title}</h4>
+                                        <p className="text-xs text-slate-500 leading-relaxed italic">{s.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* --- FOOTER --- */}
+                    <footer className="py-20 bg-slate-950 border-t border-white/5 px-6">
+                        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+                            <div className="text-left space-y-4">
+                                <div className="flex items-center gap-2">
+                                    <Icons.Shield className="text-slate-600" size={30} />
+                                    <span className="text-xl font-black text-slate-600 tracking-[0.3em]">VESTIGIO</span>
+                                </div>
+                                <p className="text-slate-700 text-[10px] font-bold uppercase tracking-[0.2em] max-w-xs leading-relaxed">
+                                    Ingeniería Táctica y Ecosistemas de Inteligencia. <br/>
                                     Próximo Lanzamiento 2026.
                                 </p>
                             </div>
-                            <div className="text-center md:text-right">
-                                <p className="text-[9px] font-mono text-slate-700 tracking-widest uppercase">Santiago • Chile • Global Standards</p>
-                                <p className="text-[8px] font-mono text-slate-800 uppercase mt-2">© 2026 VESTIGIO FORENSICS SpA. Todos los derechos reservados.</p>
+                            <div className="text-center md:text-right space-y-2">
+                                <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest">Santiago • Chile • Global Lab</p>
+                                <p className="text-[9px] font-mono text-slate-800 uppercase">© 2026 VESTIGIO FORENSICS SpA. Todos los derechos reservados.</p>
                             </div>
                         </div>
                     </footer>

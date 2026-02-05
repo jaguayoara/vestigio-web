@@ -55,13 +55,7 @@
             background: radial-gradient(circle at center, rgba(34, 211, 238, 0.1) 0%, rgba(2, 6, 23, 1) 70%);
         }
 
-        .text-gradient-chile {
-            background: linear-gradient(90deg, #38bdf8 0%, #ffffff 50%, #f87171 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Ajuste crítico para títulos gigantes */
+        /* Eliminamos el gradiente de texto en el badge pequeño para mejorar legibilidad */
         .title-display {
             line-height: 0.85;
             padding: 0.1em 0;
@@ -195,13 +189,13 @@
                                 <OrionLogo size={140} className="md:w-[180px] md:h-[180px]" />
                             </div>
                             
-                            {/* Badge "Desarrollada en Chile" Destacado */}
-                            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 shadow-2xl mb-8">
+                            {/* Badge "Desarrollada en Chile" - Texto blanco sólido para legibilidad */}
+                            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 shadow-2xl mb-8">
                                 <span className="flex h-2 w-2 relative">
                                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                                   <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                                 </span>
-                                <span className="text-[10px] md:text-xs font-black tracking-[0.2em] uppercase text-gradient-chile">
+                                <span className="text-[10px] md:text-xs font-black tracking-[0.2em] uppercase text-white drop-shadow-md">
                                     INGENIERÍA DESARROLLADA EN CHILE
                                 </span>
                             </div>
@@ -312,7 +306,7 @@
                                         </div>
                                         <div className="flex items-center gap-4 text-white font-bold">
                                             <div className="w-8 h-[2px] bg-cyan-500"></div>
-                                            Trazabilidad Forense e Integridad de Datos
+                                            Trazabilidad Operativa e Integridad Forense
                                         </div>
                                         <div className="flex items-center gap-4 text-white font-bold">
                                             <div className="w-8 h-[2px] bg-cyan-500"></div>
